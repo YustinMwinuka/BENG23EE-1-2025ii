@@ -1,0 +1,4 @@
+"id","Phone number","Meter number","Type of meter","Units bought","Date","Price of Units","Credit remain","Region","Name"
+1,"0789465343",74233562,"threephase",75000,20062025,100000,57000,"Iringa",NULL
+3,"0789465390",7093562,"threephase",7000,20062078,10000,4000,"Mbeya",NULL
+4,"0789464563",3452662,"threephase",10000,232462078,12000,9000,"Mbeya",NULL
