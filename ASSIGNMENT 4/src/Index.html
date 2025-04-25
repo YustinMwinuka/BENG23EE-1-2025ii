@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f4f4f9; margin: 20px; padding: 20px;">
+<h2 style="color: #4CAF50;">Register Here</h2>
+<form action="/submit_registration" method="post" style="border: 1px solid #ccc; padding: 20px; background-color: #fff; max-width: 400px; margin: auto; border-radius: 8px;">
+    <label for="username" style="display: block; margin-bottom: 5px;">Username:</label>
+    <input type="text" id="username" name="username" required
+           style="width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px;"><br>
+
+    <label for="email" style="display: block; margin-bottom: 5px;">Email:</label>
+    <input type="email" id="email" name="email" required
+           style="width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px;"><br>
+
+    <label for="password" style="display: block; margin-bottom: 5px;">Password:</label>
+    <input type="password" id="password" name="password" required
+           style="width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px;"><br>
+
+    <label for="confirm_password" style="display: block; margin-bottom: 5px;">Confirm Password:</label>
+    <input type="password" id="confirm_password" name="confirm_password" required
+           style="width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px;"><br>
+
+    <input type="submit" value="Register"
+           style="background-color: #4CAF50; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer;">
+</form>
+
+<h2 style="color: #4CAF50; margin-top: 20px;">Sample Data</h2>
+<table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+    <tr style="background-color: #4CAF50; color: white;">
+        <th style="border: 1px solid #ccc; padding: 8px;">Username</th>
+        <th style="border: 1px solid #ccc; padding: 8px;">Email</th>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #ccc; padding: 8px;">john_doe</td>
+        <td style="border: 1px solid #ccc; padding: 8px;">john.doe@example.com</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #ccc; padding: 8px;">jane_smith</td>
+        <td style="border: 1px solid #ccc; padding: 8px;">jane.smith@example.com</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #ccc; padding: 8px;">mike_brown</td>
+        <td style="border: 1px solid #ccc; padding: 8px;">mike.brown@example.com</td>
+    </tr>
+</table>
+</body>
+</html>
