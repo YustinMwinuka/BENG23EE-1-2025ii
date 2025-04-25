@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Registration</title>
+</head>
+<body style="font-family: Arial, sans-serif; background: #f2f2f2; padding: 20px;">
+
+<div style="background: #ffffff; padding: 30px; border-radius: 8px; max-width: 400px; margin: auto; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+    <h2 style="text-align: center; margin-bottom: 20px;">Customer Registration</h2>
+
+    <form action="/submit-registration" method="POST">
+        <label for="fullname" style="display: block; margin-top: 10px;">Full Name</label>
+        <input type="text" id="fullname" name="fullname" required value="John Doe"
+               style="width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px;">
+
+        <label for="email" style="display: block; margin-top: 10px;">Email</label>
+        <input type="email" id="email" name="email" required value="johndoe@example.com"
+               style="width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px;">
+
+        <label for="phone" style="display: block; margin-top: 10px;">Phone Number</label>
+        <input type="tel" id="phone" name="phone" required value="123-456-7890"
+               style="width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px;">
+
+        <label for="password" style="display: block; margin-top: 10px;">Password</label>
+        <input type="password" id="password" name="password" required value="password123"
+               style="width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px;">
+
+        <button type="submit"
+                style="margin-top: 20px; width: 100%; padding: 12px; background-color: #4CAF50; color: white; font-weight: bold; border: none; border-radius: 4px; cursor: pointer;">
+            Register
+        </button>
+    </form>
+</div>
+
+</body>
+</html>
