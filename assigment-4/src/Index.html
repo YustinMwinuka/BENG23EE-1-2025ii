@@ -1,0 +1,81 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Registration Form</title>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          padding: 20px;
+          background-color: #f4f4f4;
+        }
+        .form-container {
+          background-color: #fff;
+          padding: 20px;
+          max-width: 500px;
+          margin: auto;
+          border-radius: 8px;
+          box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .form-container h2 {
+          text-align: center;
+        }
+        label {
+          display: block;
+          margin-top: 10px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        textarea {
+          width: 100%;
+          padding: 8px;
+          margin-top: 5px;
+          box-sizing: border-box;
+        }
+        input[type="submit"] {
+          background-color: #28a745;
+          color: white;
+          padding: 10px 15px;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          margin-top: 15px;
+        }
+        input[type="submit"]:hover {
+          background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Customer Registration</h2>
+    <form action="/submit-customer" method="POST">
+        <label for="fullname">Full Name:</label>
+        <input type="text" id="fullname" name="fullname" required>
+
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required>
+
+        <label for="address">Address:</label>
+        <textarea id="address" name="address" rows="3" required></textarea>
+
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city">
+
+        <label for="postal">Postal Code:</label>
+        <input type="text" id="postal" name="postal">
+
+        <input type="submit" value="Register">
+    </form>
+</div>
+
+</body>
+</html>
