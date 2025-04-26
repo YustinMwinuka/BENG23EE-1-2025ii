@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register & Login with Dashboard</title>
+    <style>
+        * {
+          box-sizing: border-box;
+          font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+          background: linear-gradient(135deg, #667eea, #764ba2);
+          margin: 0;
+          padding: 0;
+          height: 100vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .container {
+          background: white;
+          padding: 30px 40px;
+          border-radius: 12px;
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+          width: 100%;
+          max-width: 400px;
+          animation: fadeIn 0.8s ease;
+        }
+
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(-20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+          text-align: center;
+          margin-bottom: 25px;
+          color: #333;
+        }
+
+        .form-group {
+          margin-bottom: 15px;
+        }
+
+        label {
+          display: block;
+          margin-bottom: 6px;
+          font-weight: bold;
+          color: #444;
+        }
+
+        input {
+          width: 100%;
+          padding: 10px;
+          border: 2px solid #ddd;
+          border-radius: 8px;
+          font-size: 14px;
+        }
+
+        button {
+          background: linear-gradient(to right, #667eea, #764ba2);
+          color: white;
+          border: none;
+          padding: 12px;
+          width: 100%;
+          font-size: 16px;
+          font-weight: bold;
+          border-radius: 8px;
+          cursor: pointer;
+          margin-top: 10px;
+        }
+
+        button:hover {
+          opacity: 0.95;
+        }
+
+        .switch-link {
+          text-align: center;
+          margin-top: 15px;
+          font-size: 14px;
+        }
+
+        .switch-link a {
+          color: #667eea;
+          text-decoration: none;
+        }
+
+        .hidden {
+          display: none;
+        }
+
+        .dashboard {
+          background: white;
+          border-radius: 12px;
+          padding: 30px;
+          width: 90%;
+          max-width: 600px;
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        table {
+          width: 100%;
+          border-collapse: collapse;
+          margin-top: 20px;
+        }
+
+        th, td {
+          padding: 12px;
+          border-bottom: 1px solid #ddd;
+          text-align: left;
+        }
+
+        th {
+          background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Register Form -->
+<div class="container" id="register-container">
+    <h2>Register</h2>
+    <div class="form-group">
+        <label for="reg-name">Full Name</label>
+        <input type="text" id="reg-name" required>
+    </div>
+    <div class="form-group">
+        <label for="reg-email">Email</label>
+        <input type="email" id="reg-email" required>
+    </div>
+    <div class="form-group">
+        <label for="reg-username">Username</label>
+        <input type="text" id="reg-username" required>
+    </div>
+    <div class="form-group">
+        <label for="reg-password">Password</label>
+        <input type="password" id="reg-password" required>
+    </div>
+    <button onclick="register()">Register</button>
+    <div class="switch-link">
+        Already have an account? <a href="#" onclick="toggleForm('login')">Sign in</a>
+    </div>
+</div>
+
+<!-- Login Form -->
+<div class="container hidden" id="login-container">
+    <h2>Login</h2>
+    <div class="form-group">
+        <label for="login-email">Email</label>
+        <input type="email" id="login-email" required>
+    </div>
+    <div class="form-group">
+        <label for="login-password">Password</label>
+        <input type="password" id="login-password" required>
+    </div>
+    <button onclick="login()">Login</button>
+    <div class="switch-link">
+        Don't have an account? <a href="#" onclick="toggleForm('register')">Register</a>
+    </div>
+</div>
+
+<!-- Dashboard -->
+<div class="dashboard hidden" id="dashboard">
+    <h2>Welcome!</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Username</th>
+        </tr>
+        </thead>
+        <tbody id="user-info">
+        <!-- User info will appear here -->
+        </tbody>
+    </table>
+</div>
+
+<script>
+    let registeredUser = {};
+
+    function toggleForm(form) {
+      document.getElementById('register-container').classList.add('hidden');
+      document.getElementById('login-container').classList.add('hidden');
+      if (form === 'register') {
+        document.getElementById('register-container').classList.remove('hidden');
+      } else {
+        document.getElementById('login-container').classList.remove('hidden');
+      }
+    }
+
+    function register() {
+      registeredUser = {
+        name: document.getElementById('reg-name').value,
+        email: document.getElementById('reg-email').value,
+        username: document.getElementById('reg-username').value,
+        password: document.getElementById('reg-password').value
+      };
+
+      alert("Registered successfully! Now you can log in.");
+      toggleForm('login');
+    }
+
+    function login() {
+      const email = document.getElementById('login-email').value;
+      const password = document.getElementById('login-password').value;
+
+      if (email === registeredUser.email && password === registeredUser.password) {
+        // Hide forms and show dashboard
+        document.getElementById('login-container').classList.add('hidden');
+        document.getElementById('dashboard').classList.remove('hidden');
+
+        // Show user info in table
+        document.getElementById('user-info').innerHTML = `
+          <tr>
+            <td>${registeredUser.name}</td>
+            <td>${registeredUser.email}</td>
+            <td>${registeredUser.username}</td>
+          </tr>
+        `;
+      } else {
+        alert("Invalid email or password!");
+      }
+    }
+</script>
+
+</body>
+</html>

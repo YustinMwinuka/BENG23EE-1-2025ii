@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Multi-User Register & Login</title>
+    <style>
+        * {
+          box-sizing: border-box;
+          font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+          background: linear-gradient(135deg, #667eea, #764ba2);
+          margin: 0;
+          padding: 0;
+          height: 100vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .container, .dashboard {
+          background: white;
+          padding: 30px 40px;
+          border-radius: 12px;
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+          width: 90%;
+          max-width: 500px;
+          animation: fadeIn 0.8s ease;
+        }
+
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(-20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+          text-align: center;
+          margin-bottom: 25px;
+          color: #333;
+        }
+
+        .form-group {
+          margin-bottom: 15px;
+        }
+
+        label {
+          display: block;
+          margin-bottom: 6px;
+          font-weight: bold;
+          color: #444;
+        }
+
+        input {
+          width: 100%;
+          padding: 10px;
+          border: 2px solid #ddd;
+          border-radius: 8px;
+          font-size: 14px;
+        }
+
+        button {
+          background: linear-gradient(to right, #667eea, #764ba2);
+          color: white;
+          border: none;
+          padding: 12px;
+          width: 100%;
+          font-size: 16px;
+          font-weight: bold;
+          border-radius: 8px;
+          cursor: pointer;
+          margin-top: 10px;
+        }
+
+        button:hover {
+          opacity: 0.95;
+        }
+
+        .switch-link {
+          text-align: center;
+          margin-top: 15px;
+          font-size: 14px;
+        }
+
+        .switch-link a {
+          color: #667eea;
+          text-decoration: none;
+        }
+
+        .hidden {
+          display: none;
+        }
+
+        table {
+          width: 100%;
+          border-collapse: collapse;
+          margin-top: 20px;
+        }
+
+        th, td {
+          padding: 12px;
+          border-bottom: 1px solid #ddd;
+          text-align: left;
+        }
+
+        th {
+          background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Register -->
+<div class="container" id="register-container">
+    <h2>Register</h2>
+    <div class="form-group">
+        <label for="reg-name">Full Name</label>
+        <input type="text" id="reg-name">
+    </div>
+    <div class="form-group">
+        <label for="reg-email">Email</label>
+        <input type="email" id="reg-email">
+    </div>
+    <div class="form-group">
+        <label for="reg-username">Username</label>
+        <input type="text" id="reg-username">
+    </div>
+    <div class="form-group">
+        <label for="reg-password">Password</label>
+        <input type="password" id="reg-password">
+    </div>
+    <button onclick="register()">Register</button>
+    <div class="switch-link">
+        Already have an account? <a href="#" onclick="toggleForm('login')">Login</a>
+    </div>
+</div>
+
+<!-- Login -->
+<div class="container hidden" id="login-container">
+    <h2>Login</h2>
+    <div class="form-group">
+        <label for="login-email">Email</label>
+        <input type="email" id="login-email">
+    </div>
+    <div class="form-group">
+        <label for="login-password">Password</label>
+        <input type="password" id="login-password">
+    </div>
+    <button onclick="login()">Login</button>
+    <div class="switch-link">
+        Don't have an account? <a href="#" onclick="toggleForm('register')">Register</a>
+    </div>
+</div>
+
+<!-- Dashboard -->
+<div class="dashboard hidden" id="dashboard">
+    <h2>User Dashboard</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Username</th>
+        </tr>
+        </thead>
+        <tbody id="user-list">
+        <!-- User rows inserted here -->
+        </tbody>
+    </table>
+</div>
+
+<script>
+    const regContainer = document.getElementById("register-container");
+    const loginContainer = document.getElementById("login-container");
+    const dashboard = document.getElementById("dashboard");
+
+    const userList = document.getElementById("user-list");
+
+    function getUsers() {
+      return JSON.parse(localStorage.getItem("users") || "[]");
+    }
+
+    function saveUsers
