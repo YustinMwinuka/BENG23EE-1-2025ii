@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f4f4f9; margin: 0; padding: 20px;">
+
+<div style="max-width: 600px; margin: 0 auto; background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+    <h2 style="text-align: center; color: #333;">Registration Form</h2>
+
+    <form action="/submit_registration" method="POST">
+        <!-- Full Name -->
+        <label for="fullname" style="display: block; margin-bottom: 5px; color: #333;">Full Name:</label>
+        <input type="text" id="fullname" name="fullname" value="John Doe" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px;">
+
+        <!-- Email -->
+        <label for="email" style="display: block; margin-bottom: 5px; color: #333;">Email:</label>
+        <input type="email" id="email" name="email" value="john.doe@example.com" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px;">
+
+        <!-- Phone Number -->
+        <label for="phone" style="display: block; margin-bottom: 5px; color: #333;">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" value="+1234567890" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px;">
+
+        <!-- Password -->
+        <label for="password" style="display: block; margin-bottom: 5px; color: #333;">Password:</label>
+        <input type="password" id="password" name="password" value="password123" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px;">
+
+        <!-- Confirm Password -->
+        <label for="confirm_password" style="display: block; margin-bottom: 5px; color: #333;">Confirm Password:</label>
+        <input type="password" id="confirm_password" name="confirm_password" value="password123" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px;">
+
+        <!-- Gender -->
+        <label for="gender" style="display: block; margin-bottom: 5px; color: #333;">Gender:</label>
+        <select id="gender" name="gender" style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px;">
+            <option value="male" selected>Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select>
+
+        <!-- Terms and Conditions -->
+        <label for="terms" style="display: block; color: #333;">
+            <input type="checkbox" id="terms" name="terms" checked required style="margin-right: 10px;">
+            I agree to the terms and conditions
+        </label>
+
+        <!-- Submit Button -->
+        <div style="text-align: center;">
+            <input type="submit" value="Register" style="padding: 10px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;">
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
