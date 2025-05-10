@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register Form with User Table</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f4f4f4; display: flex; justify-content: center; align-items: center; flex-direction: column; height: 100vh; margin: 0;">
+
+<!-- Register Form -->
+<form id="registerForm" style="background: #fff; padding: 20px 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); width: 300px;" onsubmit="return addToTable(event);">
+
+  <h2 style="text-align: center; margin-bottom: 20px;">Register</h2>
+
+  <input type="text" id="fullName" placeholder="Full Name" required
+         style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px;">
+
+  <input type="email" id="email" placeholder="Email Address" required
+         style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px;">
+
+  <input type="password" id="password" placeholder="Password" required
+         style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px;">
+
+  <input type="password" id="confirmPassword" placeholder="Confirm Password" required
+         style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px;">
+
+  <button type="submit"
+          style="width: 100%; padding: 10px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer;">
+    Sign Up
+  </button>
+</form>
+
+<!-- Table to Display Data -->
+<table id="dataTable" style="margin-top: 30px; border-collapse: collapse; width: 80%; margin-left: auto; margin-right: auto; background-color: #ffffff; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);">
+  <thead>
+  <tr style="background-color: #4CAF50; color: white; text-align: left;">
+    <th style="padding: 12px 15px; border: 1px solid #ddd;">Full Name</th>
+    <th style="padding: 12px 15px; border: 1px solid #ddd;">Email Address</th>
+    <th style="padding: 12px 15px; border: 1px solid #ddd;">Password</th>
+    <th style="padding: 12px 15px; border: 1px solid #ddd;">Confirm Password</th>
+  </tr>
+  </thead>
+  <tbody>
+  <!-- Data rows will be added here -->
+  </tbody>
+</table>
+
+<script>
+  // Function to add user data to the table
+  function addToTable(event) {
+    // Prevent form submission
+    event.preventDefault();
+
+    // Get input values from the form
+    var fullName = document.getElementById('fullName').value;
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('password').value;
+    var confirmPassword = document.getElementById('confirmPassword').value;
+
+    // Check if passwords match
+    if (password !== confirmPassword) {
+      alert('Passwords do not match!');
+      return false;
+    }
+
+    // Create a new row in the table
+    var table = document.getElementById('dataTable').getElementsByTagName('tbody')[0];
+    var newRow = table.insertRow(table.rows.length);
+
+    // Insert new cells and populate them with form data
+    var cell1 = newRow.insertCell(0);
+    var cell2 = newRow.insertCell(1);
+    var cell3 = newRow.insertCell(2);
+    var cell4 = newRow.insertCell(3);
+
+    // Fill the cells with user input
+    cell1.innerHTML = fullName;
+    cell2.innerHTML = email;
+    cell3.innerHTML = password;  // In real applications, you should never display passwords like this
+    cell4.innerHTML = confirmPassword;  // Same for confirm password
+
+    // Clear the form after submission for new entries
+    document.getElementById('registerForm').reset();
+  }
+</script>
+
+</body>
+</html>
